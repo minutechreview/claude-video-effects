@@ -42,6 +42,11 @@ Because the speaker is cut out and sits between "behind" and "front", text and c
    npx hyperframes remove-background src/clip.mp4 -o src/me.webm --quality best
    ```
    `me.webm` is VP9 with alpha.
+   **Holding a mic or a phone?** The person matte often drops dark props, so the mic turns see-through and effects behind you show through it. Put it back:
+   ```bash
+   python3 tools/fixmic.py src/clip.mp4 src/me.webm src/me-mic.webm   # then use src/me-mic.webm everywhere
+   ```
+   Edit `BOX` at the top of `fixmic.py` to the area where the prop moves (x0, y0, x1, y1 in pixels). It needs numpy and Pillow.
 5. **Captions:** paste the chunks from `words.py` into `CAPS` in `index.html`. Use 2–4 words per chunk and wrap key words in `<em>` for the accent colour.
 6. **Set the root duration:** `data-duration` on `#root`, plus `data-duration` on `#plate` and `#me`, all equal to the clip length (`ffprobe`).
 7. **Add effects** with the effect skills. Each one says which layer its HTML goes in, what CSS it needs (already in `style.css`), and the timeline code to paste where it says `// FX: effects go here`.
