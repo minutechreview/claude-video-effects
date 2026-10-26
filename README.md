@@ -17,7 +17,7 @@
 ## Install (Claude Code)
 
 ```bash
-git clone https://github.com/<you>/claude-video-effects
+git clone https://github.com/minutechreview/claude-video-effects
 mkdir -p ~/.claude/skills && cp -r claude-video-effects/skills/* ~/.claude/skills/
 ```
 
